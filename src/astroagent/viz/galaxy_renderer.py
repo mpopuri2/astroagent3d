@@ -33,7 +33,7 @@ class GalaxyMapRenderer:
         title: str | None = None,
     ) -> str:
         if title is None:
-            title = f"Every Known Exoplanet — 3D Galaxy Map ({len(planets)} planets)"
+            title = f"Every Known Exoplanet - 3D Galaxy Map ({len(planets)} planets)"
 
         max_dist = max((p.get("distance_pc") or 1) for p in planets) if planets else 1000
         scale = 80.0 / max_dist
@@ -520,9 +520,9 @@ function buildStats() {
   const bar = document.getElementById('stats-bar');
   if (!STATS.total_planets) return;
   const items = [
-    [STATS.nearest_pc ? (STATS.nearest_pc * 3.26).toFixed(1) + ' ly' : '—', 'Nearest'],
-    [STATS.farthest_pc ? Math.round(STATS.farthest_pc * 3.26).toLocaleString() + ' ly' : '—', 'Farthest'],
-    [STATS.median_distance_pc ? Math.round(STATS.median_distance_pc * 3.26).toLocaleString() + ' ly' : '—', 'Median Distance'],
+    [STATS.nearest_pc ? (STATS.nearest_pc * 3.26).toFixed(1) + ' ly' : '-', 'Nearest'],
+    [STATS.farthest_pc ? Math.round(STATS.farthest_pc * 3.26).toLocaleString() + ' ly' : '-', 'Farthest'],
+    [STATS.median_distance_pc ? Math.round(STATS.median_distance_pc * 3.26).toLocaleString() + ' ly' : '-', 'Median Distance'],
   ];
   bar.innerHTML = items.map(([v, l]) =>
     `<div class="stat-item"><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`
@@ -557,13 +557,13 @@ function showInfoCard(data) {
     (data.host_star || 'Unknown') + ' · ' + (data.discovery_method || '');
 
   const rows = [
-    ['Distance', data.distance_ly ? data.distance_ly.toLocaleString() + ' ly' : '—'],
-    ['RA / Dec', data.ra != null ? data.ra.toFixed(3) + '° / ' + data.dec.toFixed(3) + '°' : '—'],
-    ['Discovered', data.discovery_year || '—'],
-    ['Radius', data.radius_earth ? data.radius_earth.toFixed(2) + ' R⊕' : '—'],
-    ['Mass', data.mass_earth ? data.mass_earth.toFixed(2) + ' M⊕' : '—'],
-    ['Period', data.orbital_period_days ? data.orbital_period_days.toFixed(2) + ' d' : '—'],
-    ['Temp', data.equilibrium_temp_k ? Math.round(data.equilibrium_temp_k) + ' K' : '—'],
+    ['Distance', data.distance_ly ? data.distance_ly.toLocaleString() + ' ly' : '-'],
+    ['RA / Dec', data.ra != null ? data.ra.toFixed(3) + '° / ' + data.dec.toFixed(3) + '°' : '-'],
+    ['Discovered', data.discovery_year || '-'],
+    ['Radius', data.radius_earth ? data.radius_earth.toFixed(2) + ' R⊕' : '-'],
+    ['Mass', data.mass_earth ? data.mass_earth.toFixed(2) + ' M⊕' : '-'],
+    ['Period', data.orbital_period_days ? data.orbital_period_days.toFixed(2) + ' d' : '-'],
+    ['Temp', data.equilibrium_temp_k ? Math.round(data.equilibrium_temp_k) + ' K' : '-'],
   ];
 
   document.getElementById('card-body').innerHTML = rows.map(

@@ -669,12 +669,12 @@ function showInfoCard(data) {
   document.getElementById('card-subtitle').textContent = (data.discovery_method || 'Transit') + ' Detection';
 
   const rows = [
-    ['Mass', data.mass_earth ? data.mass_earth.toFixed(3) + ' M⊕' : '—'],
-    ['Radius', data.radius_earth ? data.radius_earth.toFixed(3) + ' R⊕' : '—'],
-    ['Period', data.orbital_period_days ? data.orbital_period_days.toFixed(3) + ' d' : '—'],
+    ['Mass', data.mass_earth ? data.mass_earth.toFixed(3) + ' M⊕' : '-'],
+    ['Radius', data.radius_earth ? data.radius_earth.toFixed(3) + ' R⊕' : '-'],
+    ['Period', data.orbital_period_days ? data.orbital_period_days.toFixed(3) + ' d' : '-'],
     ['Orbit', data.semi_major_axis_au.toFixed(5) + ' AU'],
     ['Ecc.', (data.eccentricity || 0).toFixed(4)],
-    ['Temp', data.equilibrium_temp_k ? Math.round(data.equilibrium_temp_k) + ' K' : '—'],
+    ['Temp', data.equilibrium_temp_k ? Math.round(data.equilibrium_temp_k) + ' K' : '-'],
   ];
 
   document.getElementById('card-body').innerHTML = rows.map(
@@ -690,9 +690,9 @@ function showInfoCard(data) {
     if (sma >= hzInnerAU && sma <= hzOuterAU) {
       hzBadge.innerHTML = '<span class="hz-badge in-hz">In Habitable Zone</span>';
     } else if (sma < hzInnerAU) {
-      hzBadge.innerHTML = '<span class="hz-badge too-hot">Too Hot — Inside HZ</span>';
+      hzBadge.innerHTML = '<span class="hz-badge too-hot">Too Hot - Inside HZ</span>';
     } else {
-      hzBadge.innerHTML = '<span class="hz-badge too-cold">Too Cold — Outside HZ</span>';
+      hzBadge.innerHTML = '<span class="hz-badge too-cold">Too Cold - Outside HZ</span>';
     }
   } else {
     hzBadge.innerHTML = '';

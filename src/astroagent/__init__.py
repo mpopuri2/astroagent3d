@@ -1,4 +1,4 @@
-"""AstroAgent 3D — AI-powered astronomical research agent with interactive 3D visualization."""
+"""AstroAgent 3D - AI-powered astronomical research agent with interactive 3D visualization."""
 
 from astroagent.agent.core import AstroAgent
 

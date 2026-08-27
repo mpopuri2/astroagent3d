@@ -18,7 +18,7 @@ def display_orbit_viewer(
     """Render an interactive 3D orbit viewer inline in a Jupyter notebook."""
     system_name = _detect_system(planets)
     if title is None:
-        title = f"{system_name} — 3D Orbital View"
+        title = f"{system_name} - 3D Orbital View"
 
     prepared = _prepare_planets(planets)
     if not prepared:

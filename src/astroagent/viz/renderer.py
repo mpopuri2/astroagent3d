@@ -38,7 +38,7 @@ class OrbitRenderer:
         """Generate a complete HTML page with Three.js 3D orbit visualization."""
         system_name = self._detect_system_name(planets)
         if title is None:
-            title = f"{system_name} — 3D Orbital View"
+            title = f"{system_name} - 3D Orbital View"
 
         processed = self._process_planets(planets)
 
@@ -200,7 +200,7 @@ color:rgba(255,255,255,0.6)}
 </head>
 <body>
 <div id="canvas-container">
-  <div id="title-bar"><h1>{{ system_name }}</h1><p>Interactive 3D orbital visualization — real NASA data</p></div>
+  <div id="title-bar"><h1>{{ system_name }}</h1><p>Interactive 3D orbital visualization - real NASA data</p></div>
   <div id="info-card"><h3 id="card-name"></h3><div id="card-body"></div></div>
   <div id="speed-control">
     <span>Speed</span>
@@ -385,13 +385,13 @@ function showInfoCard(data) {
   const card = document.getElementById('info-card');
   document.getElementById('card-name').textContent = data.name;
   const rows = [
-    ['Mass', data.mass_earth ? data.mass_earth.toFixed(3) + ' M⊕' : '—'],
-    ['Radius', data.radius_earth ? data.radius_earth.toFixed(3) + ' R⊕' : '—'],
-    ['Period', data.orbital_period_days ? data.orbital_period_days.toFixed(3) + ' days' : '—'],
+    ['Mass', data.mass_earth ? data.mass_earth.toFixed(3) + ' M⊕' : '-'],
+    ['Radius', data.radius_earth ? data.radius_earth.toFixed(3) + ' R⊕' : '-'],
+    ['Period', data.orbital_period_days ? data.orbital_period_days.toFixed(3) + ' days' : '-'],
     ['Semi-major axis', data.semi_major_axis_au.toFixed(5) + ' AU'],
     ['Eccentricity', (data.eccentricity || 0).toFixed(4)],
-    ['Eq. temperature', data.equilibrium_temp_k ? data.equilibrium_temp_k.toFixed(0) + ' K' : '—'],
-    ['Discovery', data.discovery_method || '—'],
+    ['Eq. temperature', data.equilibrium_temp_k ? data.equilibrium_temp_k.toFixed(0) + ' K' : '-'],
+    ['Discovery', data.discovery_method || '-'],
   ];
   document.getElementById('card-body').innerHTML = rows.map(
     ([l, v]) => `<div class="info-row"><span class="info-label">${l}</span><span class="info-value">${v}</span></div>`

@@ -5,12 +5,12 @@ build-backend = "hatchling.build"
 [project]
 name = "astroagent"
 version = "0.1.0"
-description = "AI-powered astronomical research agent with 3D visualization — query NASA databases with natural language and explore planetary systems interactively."
+description = "AI-powered astronomical research agent with 3D visualization - query NASA databases with natural language and explore planetary systems interactively."
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.10"
 authors = [
-    { name = "Ravindra Bhavsar" },
+    { name = "Ravindra Devabhaktuni" },
 ]
 keywords = [
     "astronomy",

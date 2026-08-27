@@ -169,7 +169,7 @@ def _generate_summary(results: dict[str, Any]) -> str:
         if n > 0:
             best = results["transit_candidates"][0]
             parts.append(
-                f"Detected {n} transit candidate{'s' if n != 1 else ''} — "
+                f"Detected {n} transit candidate{'s' if n != 1 else ''} - "
                 f"strongest at {best['significance_sigma']}σ with depth "
                 f"{best['depth_percent']}%."
             )

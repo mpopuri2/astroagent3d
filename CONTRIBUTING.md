@@ -22,7 +22,7 @@ pytest tests/ -m "not slow" -v
 
 ## Development workflow
 
-1. **Check existing issues** — look for `good-first-issue` labels
+1. **Check existing issues** - look for `good-first-issue` labels
 2. **Open an issue** describing what you want to work on
 3. **Create a branch** from `main`: `git checkout -b feature/your-feature`
 4. **Write code** with tests
@@ -65,7 +65,7 @@ class MyToolInput(BaseModel):
 
 class MyTool(AstroTool):
     name = "my_tool"
-    description = "What this tool does — Claude reads this to decide when to use it"
+    description = "What this tool does - Claude reads this to decide when to use it"
     input_schema = MyToolInput
 
     def execute(self, target: str) -> dict:
@@ -82,7 +82,7 @@ class MyTool(AstroTool):
 **Context:** Both Claude and GPT-4 support tool-calling for agentic workflows. We evaluated both for this scientific research use case.
 
 **Rationale:**
-- Claude's tool-use API provides structured, typed tool definitions via JSON Schema — a natural fit for Pydantic-based scientific tools
+- Claude's tool-use API provides structured, typed tool definitions via JSON Schema - a natural fit for Pydantic-based scientific tools
 - Claude's extended thinking capability helps with multi-step reasoning about astronomical data
 - The Anthropic SDK's message-based conversation model maps cleanly to our iterative query-refine workflow
 - JupyterAI already ships with Claude support, aligning with our Jupyter integration goals
@@ -95,7 +95,7 @@ class MyTool(AstroTool):
 
 **Rationale:**
 - Pydantic v2 generates JSON Schema natively via `model_json_schema()`, which is exactly what Claude's tool definition expects
-- Field descriptions become part of the tool schema — Claude reads them to understand how to call each tool
+- Field descriptions become part of the tool schema - Claude reads them to understand how to call each tool
 - Runtime validation catches malformed inputs before they hit external APIs
 - Type hints enable IDE autocompletion and mypy checking
 
@@ -106,7 +106,7 @@ class MyTool(AstroTool):
 **Context:** The visualization needs to work inline in Jupyter notebooks without requiring users to install Node.js or run a build step.
 
 **Rationale:**
-- Jupyter renders HTML output directly — a self-contained HTML string with a CDN script tag "just works"
+- Jupyter renders HTML output directly - a self-contained HTML string with a CDN script tag "just works"
 - No build toolchain dependency means `pip install` is the only setup step
 - Three.js r128 is stable and widely cached on CDN
 - The alternative (a JupyterLab extension with bundled JS) would require a separate `jupyter labextension install` step and TypeScript compilation
@@ -137,7 +137,7 @@ class MyTool(AstroTool):
 - Follow existing patterns in the codebase
 - Use type hints everywhere (enforced by mypy strict mode)
 - Ruff handles formatting and import sorting
-- Keep tool implementations focused — one tool per data source
+- Keep tool implementations focused - one tool per data source
 
 ## Questions?
 

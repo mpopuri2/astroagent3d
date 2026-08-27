@@ -39,7 +39,7 @@ class SDSSInput(BaseModel):
     )
     sql_query: str | None = Field(
         default=None,
-        description="Custom SDSS SQL query. Advanced — overrides other parameters. "
+        description="Custom SDSS SQL query. Advanced - overrides other parameters. "
         "Use CasJobs-style SQL against SDSS DR18 tables.",
     )
     max_results: int = Field(

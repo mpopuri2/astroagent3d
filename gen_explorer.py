@@ -26,7 +26,7 @@ api_key = os.environ.get("ANTHROPIC_API_KEY", "")
 if api_key:
     print("Embedding API key from ANTHROPIC_API_KEY env var")
 else:
-    print("No ANTHROPIC_API_KEY env var found — Pulsar AI will ask for key on first use")
+    print("No ANTHROPIC_API_KEY env var found - Pulsar AI will ask for key on first use")
 
 explorer = GalaxyExplorer()
 out = explorer.render_to_file(

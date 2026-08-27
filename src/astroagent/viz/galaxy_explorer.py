@@ -262,7 +262,7 @@ class GalaxyExplorer:
     def _kopparapu_hz(luminosity: float, teff: float) -> tuple[float, float]:
         """Kopparapu et al. (2014) habitable zone boundaries.
 
-        Uses temperature-dependent coefficients — the same model NASA uses.
+        Uses temperature-dependent coefficients - the same model NASA uses.
         Returns (inner_au, outer_au) for the conservative habitable zone.
         """
         ts = teff - 5780.0
@@ -298,7 +298,7 @@ class GalaxyExplorer:
         api_key: str | None = None,  # deprecated, key now stored in browser localStorage
     ) -> str:
         if title is None:
-            title = "Galaxy Explorer — Every Known Exoplanet"
+            title = "Galaxy Explorer - Every Known Exoplanet"
 
         max_dist = max((p.get("distance_pc") or 1) for p in exoplanets) if exoplanets else 1000
         scale = 80.0 / max_dist
@@ -1014,7 +1014,7 @@ function updateSolarSystem(time, dt) {
     const periodDays = d.orbital_period_days || 365.25;
     d.angle += (2 * Math.PI / periodDays) * daysPerSec * dt;
 
-    // Elliptical (Keplerian) orbit — star sits at the ellipse focus
+    // Elliptical (Keplerian) orbit - star sits at the ellipse focus
     const ecc = d.eccentricity || 0;
     const semiMajor = d.orbitRadius;
     const semiMinor = semiMajor * Math.sqrt(1 - ecc * ecc);
@@ -1601,7 +1601,7 @@ function rebuildSystemView(planets, starName, starColor, showAllMoons) {
   sysShaderUniforms.push(starCoreMat.uniforms);
   solarScene.add(new THREE.Mesh(new THREE.SphereGeometry(sR,64,64), starCoreMat));
 
-  // Star glow layers (volumetric rim — corona)
+  // Star glow layers (volumetric rim - corona)
   for (let i = 1; i <= 4; i++) {
     const glowMat = new THREE.ShaderMaterial({
       uniforms: { color: {value: sCol}, viewVector: {value: solarCamera.position} },
@@ -1906,7 +1906,7 @@ function rebuildSystemView(planets, starName, starColor, showAllMoons) {
   }
   const rockTex = createRockTexture();
 
-  // ── Saturn Rings — icy rock particles with Cassini Division ──
+  // ── Saturn Rings - icy rock particles with Cassini Division ──
   saturnRingGroup = null;
   const saturnPlanet = solarPlanets.find(pl => pl.userData.name === 'Saturn');
   if (saturnPlanet) {
@@ -2039,7 +2039,7 @@ function rebuildSystemView(planets, starName, starColor, showAllMoons) {
   hzMeshRef = hzGroup;
   solarScene.add(hzGroup);
 
-  // ── Asteroid Belt — real rocky asteroids between Mars and Jupiter ──
+  // ── Asteroid Belt - real rocky asteroids between Mars and Jupiter ──
   asteroidBelt = null;
   if (starName === 'Solar System') {
     const beltInner = orbitScale ? 2.1 * orbitScale : scaleOrbit(2.1);
@@ -2279,7 +2279,7 @@ function initGalaxy() {
   galaxyPointCloud = new THREE.Points(geom, mat);
   galaxyScene.add(galaxyPointCloud);
 
-  // Black holes — realistic structure
+  // Black holes - realistic structure
   BLACK_HOLES.forEach(bh => {
     const bhGroup = new THREE.Group();
     bhGroup.position.set(bh.x, bh.z || 0, bh.y);
@@ -2483,7 +2483,7 @@ function initMilkyWay() {
     return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);
   }
 
-  // Star color palette — mixed warm/cool like real galaxy photos
+  // Star color palette - mixed warm/cool like real galaxy photos
   const starColors = [
     [0.5,0.6,1.0], [0.6,0.7,1.0], [0.8,0.85,1.0],
     [1.0,1.0,0.95], [1.0,0.95,0.8], [1.0,0.85,0.55],
@@ -2548,7 +2548,7 @@ function initMilkyWay() {
   });
   mwScene.add(new THREE.Points(depthGeo, depthMat));
 
-  // ── Core glow — overexposed warm center + blue-purple outer halo ──
+  // ── Core glow - overexposed warm center + blue-purple outer halo ──
   const coreColors = ['#fffbee','#ffe8aa','#ffbb66','#cc7733','#443355','#332266','#221c44'];
   const coreSizes =  [0.5,     1.2,     2.5,     4.5,     7,       10,      15];
   const coreAlphas = [0.3,     0.12,    0.04,    0.018,   0.006,   0.003,   0.001];
@@ -2982,7 +2982,7 @@ function setupControls() {
           return;
         }
       }
-      // Clicked empty space — keep current look-at and zoom
+      // Clicked empty space - keep current look-at and zoom
       focusedObject = null;
       closePanel();
     } else if (currentMode === 'milkyway') {
@@ -3260,18 +3260,18 @@ window.showExoplanetInfo = function(data) {
   ) : null;
 
   const rows = [
-    ['Distance', data.distance_ly ? data.distance_ly.toLocaleString() + ' ly' : '—'],
-    ['RA / Dec', data.ra != null ? data.ra.toFixed(3) + '° / ' + data.dec.toFixed(3) + '°' : '—'],
-    ['Discovered', data.discovery_year || '—'],
-    ['Method', data.discovery_method || '—'],
-    ['Star Type', starType || '—'],
-    ['Radius', data.radius_earth ? parseFloat(data.radius_earth).toFixed(2) + ' R⊕' : '—'],
-    ['Mass', data.mass_earth ? parseFloat(data.mass_earth).toFixed(2) + ' M⊕' : '—'],
-    ['Period', data.orbital_period_days ? parseFloat(data.orbital_period_days).toFixed(2) + ' d' : '—'],
-    ['Temperature', data.equilibrium_temp_k ? Math.round(parseFloat(data.equilibrium_temp_k)) + ' K' : '—'],
+    ['Distance', data.distance_ly ? data.distance_ly.toLocaleString() + ' ly' : '-'],
+    ['RA / Dec', data.ra != null ? data.ra.toFixed(3) + '° / ' + data.dec.toFixed(3) + '°' : '-'],
+    ['Discovered', data.discovery_year || '-'],
+    ['Method', data.discovery_method || '-'],
+    ['Star Type', starType || '-'],
+    ['Radius', data.radius_earth ? parseFloat(data.radius_earth).toFixed(2) + ' R⊕' : '-'],
+    ['Mass', data.mass_earth ? parseFloat(data.mass_earth).toFixed(2) + ' M⊕' : '-'],
+    ['Period', data.orbital_period_days ? parseFloat(data.orbital_period_days).toFixed(2) + ' d' : '-'],
+    ['Temperature', data.equilibrium_temp_k ? Math.round(parseFloat(data.equilibrium_temp_k)) + ' K' : '-'],
     ['Habitable Zone', data.hz_inner_au && data.hz_outer_au
-      ? parseFloat(data.hz_inner_au).toFixed(2) + ' — ' + parseFloat(data.hz_outer_au).toFixed(2) + ' AU'
-      : '—'],
+      ? parseFloat(data.hz_inner_au).toFixed(2) + ' - ' + parseFloat(data.hz_outer_au).toFixed(2) + ' AU'
+      : '-'],
   ];
 
   const sma = parseFloat(data.semi_major_axis_au);
@@ -3289,7 +3289,7 @@ window.showExoplanetInfo = function(data) {
   // Show sibling planets
   const sys = SYSTEMS[data.host_star];
   if (sys && sys.planets.length > 0) {
-    html += `<div class="planet-list"><h4>System — ${sys.planets.length} planet(s)</h4>`;
+    html += `<div class="planet-list"><h4>System - ${sys.planets.length} planet(s)</h4>`;
     sys.planets.forEach(p => {
       const col = METHOD_COLORS[p.discovery_method] || '#85B7EB';
       html += `<span class="planet-chip"><span class="dot" style="background:${col}"></span>${p.name}</span>`;
@@ -3310,7 +3310,7 @@ function showSystemInfo(data) {
     data.planets.length + ' known planet(s) · ' + (data.distance_ly || '?') + ' ly';
 
   let html = '';
-  html += `<div class="info-row"><span class="info-label">Distance</span><span class="info-value">${data.distance_ly ? data.distance_ly.toLocaleString() + ' ly' : '—'}</span></div>`;
+  html += `<div class="info-row"><span class="info-label">Distance</span><span class="info-value">${data.distance_ly ? data.distance_ly.toLocaleString() + ' ly' : '-'}</span></div>`;
   html += `<div class="info-row"><span class="info-label">Planets</span><span class="info-value">${data.planets.length}</span></div>`;
 
   html += `<div class="planet-list"><h4>Known Planets</h4>`;
@@ -3339,9 +3339,9 @@ function showBlackHoleInfo(data) {
   document.getElementById('panel-sub').textContent = data.type + ' Black Hole';
 
   const rows = [
-    ['Distance', data.distance_ly ? data.distance_ly.toLocaleString() + ' ly' : '—'],
-    ['Mass', data.mass_solar ? data.mass_solar.toLocaleString() + ' M☉' : '—'],
-    ['Type', data.type || '—'],
+    ['Distance', data.distance_ly ? data.distance_ly.toLocaleString() + ' ly' : '-'],
+    ['Mass', data.mass_solar ? data.mass_solar.toLocaleString() + ' M☉' : '-'],
+    ['Type', data.type || '-'],
     ['RA / Dec', data.ra.toFixed(3) + '° / ' + data.dec.toFixed(3) + '°'],
   ];
 
@@ -3524,8 +3524,8 @@ function buildLegend() {
   const items = [
     [PLANET_COUNT.toLocaleString(), 'Exoplanets'],
     [Object.keys(SYSTEMS).length.toLocaleString(), 'Star Systems'],
-    [STATS.nearest_pc ? (STATS.nearest_pc * 3.26).toFixed(1) + ' ly' : '—', 'Nearest'],
-    [STATS.farthest_pc ? Math.round(STATS.farthest_pc * 3.26).toLocaleString() + ' ly' : '—', 'Farthest'],
+    [STATS.nearest_pc ? (STATS.nearest_pc * 3.26).toFixed(1) + ' ly' : '-', 'Nearest'],
+    [STATS.farthest_pc ? Math.round(STATS.farthest_pc * 3.26).toLocaleString() + ' ly' : '-', 'Farthest'],
   ];
   statsEl.innerHTML = items.map(([v, l]) =>
     `<div class="stat-card"><div class="val">${v}</div><div class="lbl">${l}</div></div>`
@@ -3657,7 +3657,7 @@ document.getElementById('time-scale-select').addEventListener('change', function
 document.getElementById('system-controls').style.display = 'block';
 
 // ═══════════════════════════════════════════════
-//  SONY AI — FLOATING FACTS BUTTON
+//  SONY AI - FLOATING FACTS BUTTON
 // ═══════════════════════════════════════════════
 let pulsarAIContext = null;
 let pulsarAIFetching = false;

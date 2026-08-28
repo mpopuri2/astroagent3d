@@ -64,10 +64,10 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ravindrabhr/astroagent-3d"
-Repository = "https://github.com/ravindrabhr/astroagent-3d"
-Issues = "https://github.com/ravindrabhr/astroagent-3d/issues"
-Documentation = "https://github.com/ravindrabhr/astroagent-3d#readme"
+Homepage = "https://github.com/ravindrdev/astroagent3d"
+Repository = "https://github.com/ravindrdev/astroagent3d"
+Issues = "https://github.com/ravindrdev/astroagent3d/issues"
+Documentation = "https://github.com/ravindrdev/astroagent3d#readme"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/astroagent"]

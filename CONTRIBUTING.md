@@ -6,7 +6,7 @@ Thank you for your interest in contributing! This guide covers the development w
 
 ```bash
 # Clone the repo
-git clone https://github.com/ravindrabhr/astroagent-3d.git
+git clone https://github.com/ravindrdev/astroagent3d.git
 cd astroagent-3d
 
 # Create a virtual environment

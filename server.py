@@ -10,6 +10,7 @@ Usage:
 import http.server
 import json
 import os
+import socketserver
 import urllib.request
 
 PORT = int(os.environ.get("PORT", 8780))
@@ -86,6 +87,8 @@ if __name__ == "__main__":
     else:
         print("API key loaded from .env")
 
-    server = http.server.HTTPServer(("", PORT), ProxyHandler)
+    class ThreadedServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
+        daemon_threads = True
+    server = ThreadedServer(("", PORT), ProxyHandler)
     print(f"Serving at http://localhost:{PORT}")
     server.serve_forever()
